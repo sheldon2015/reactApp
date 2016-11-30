@@ -1,0 +1,28 @@
+@import './global.less';
+
+.side {
+    position: absolute;
+    width: 200px;
+    top: 0;
+    bottom: 0;
+    background: @white;
+    z-index: 100;
+    padding: 40px 0;
+    transition: transform .3s;
+
+    a {
+        padding: 0 10px;
+        display: block;
+        height: 40px;
+        line-height: 40px;
+    }
+
+}
+
+.side-leave {
+    transform: translate3d(-200px, 0, 0);
+}
+
+.side-enter {
+    transform: translate3d(0, 0, 0);
+}
