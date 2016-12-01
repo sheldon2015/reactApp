@@ -1,10 +1,11 @@
 import React from 'react';
 
 const InvestListItem = (props) => {
-     ;
+
     return (
         <li className='item'>
-            <a className='item-link fz16' href="">标名字
+            <a className='item-link fz16' href={props.value.bidid}>
+                <span>{props.value.bidname}</span>
                 <div className='item-content'>
                     <div className='item-1'>
                         <div>{props.value.lilv}</div>

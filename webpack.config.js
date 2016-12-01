@@ -61,7 +61,7 @@ module.exports = {
     },
 
     resolve: {
-        root: [path.resolve('./src'),path.resolve('./src')], //loader resolve 资源的路径
+        root: [path.resolve('./src'), path.resolve('./src')], //loader resolve 资源的路径
         fallback: path.join(__dirname, 'node_modules')
     },
     resolveLoader: {

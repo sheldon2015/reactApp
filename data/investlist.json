@@ -1,0 +1,18 @@
+[
+    {
+        "bidid": "1111",
+        "bidname": "aaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "lilv": "10%",
+        "qixian": "1",
+        "zonge": "5.00",
+        "zhuangtai": "待放款"
+    },
+    {
+        "bidid": "2222",
+        "bidname": "bbbbbbbbbb",
+        "lilv": "10%",
+        "qixian": "2",
+        "zonge": "5.00",
+        "zhuangtai": "待放款"
+    }
+]

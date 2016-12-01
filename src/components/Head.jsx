@@ -14,15 +14,15 @@ class Head extends Component {
     }
 }
 
-const mapStateToProps = (state) => { return { toggleSide: state.toggleSide } }
+const mapStateToProps = (state) => ({ toggleSide: state.toggleSide })
 
-const mapDispatchToProps = (dispatch) => {
-    return {
+const mapDispatchToProps = (dispatch) => (
+    {
         clickHandle: () => {
             dispatch({ type: TOGGLESIDE })
         }
     }
-}
+)
 
 
 

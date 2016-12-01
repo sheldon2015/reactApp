@@ -10,7 +10,7 @@ const App = (props) => {
         Modal = require('./Modal.jsx').default;
     });
     return (
-        <div>
+        <div className='wrap'>
             <Head />
             <Side />
             <div className='container'>
@@ -28,7 +28,7 @@ const App = (props) => {
 };
 
 
-const mapStateToProps = (state) => { return { toggleSide: state.toggleSide } }
+const mapStateToProps = (state) => ({ toggleSide: state.toggleSide })
 
 
 

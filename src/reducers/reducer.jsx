@@ -1,9 +1,6 @@
 import { combineReducers } from 'redux'
-import { TOGGLESIDE, FETCHLIST } from './../const.jsx';
-
-
-
-//UI状态
+import { TOGGLESIDE, FETCHLIST, FETCH_INVESTLIST, RECEIVE_INVESTLIST } from 'const.jsx';
+//UI状态,默认true,不可见
 const toggleSide = (prevstate = true, action) => {
     switch (action.type) {
         case TOGGLESIDE:
@@ -12,28 +9,38 @@ const toggleSide = (prevstate = true, action) => {
             return prevstate;
     }
 }
-
-
-//获取列表
 const investList = (
-    prevstate = [
-        {
-            "lilv": "10%",
-            "qixian": "1",
-            "zonge": "5.00",
-            "zhuangtai": "待放款"
-        }
-    ], action) => {
+    prevstate = {
+        isFetching: false,
+        pageNumber: 0,
+        data: []
+    }, action) => {
+
     switch (action.type) {
-        case FETCHLIST:
-            return prevstate;
+
+        case FETCH_INVESTLIST:
+            return {
+                ...prevstate,
+                isFetching:true
+            };
+
+        case RECEIVE_INVESTLIST:
+
+            return {
+                ...prevstate,
+                isFetching: false,
+                data: prevstate.data.concat(action.data)
+            }
         default:
             return prevstate;
+    
     }
 }
 
+
+
 const reducers = combineReducers({
-    toggleSide,
+    toggleSide,   
     investList
 })
 

@@ -3,18 +3,18 @@ import { render } from 'react-dom';
 import router from 'router.jsx';
 import Router from 'react-router/lib/Router'
 import browserHistory from 'react-router/lib/browserHistory'
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
-
 import combinedReducers from './reducers/reducer.jsx';
+import thunkMiddleware from 'redux-thunk';
+import createLogger from 'redux-logger';
 
-const store = createStore(combinedReducers);
+const loggerMiddleware = createLogger()
 
-
-
-
-//客户端渲染
-
+const store = createStore(combinedReducers, applyMiddleware(
+    thunkMiddleware,
+    loggerMiddleware
+));
 render(
     <Provider store={store}>
         <Router routes={router} history={browserHistory} />
