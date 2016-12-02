@@ -14,15 +14,20 @@ const InvestList = (props) => {
 
     return (
         <div>
-            <ul className='investList'>
-                {
-                    props.investList.isFetching ? <Loading /> : props.investList.data.map((value, index) => {
-                        return <InvestListItem key={index} value={value} />
-                    })
-                }
 
-            </ul>
-            <a className='text-center loadmore' onClick={(e) => { e.preventDefault(); props.clickHandle(11) } } >load more</a>
+            {              
+                <div>
+                    <ul className='investList'>
+                        {
+                            props.investList.isFetching ? <Loading /> : props.investList.data.map((value, index) => {
+                                return <InvestListItem key={index} value={value} />
+                            })
+                        }
+
+                    </ul>
+                    <a className='text-center loadmore' onClick={(e) => { e.preventDefault(); props.clickHandle(11) } } >load more</a>
+                </div>
+            }
         </div>
     );
 }

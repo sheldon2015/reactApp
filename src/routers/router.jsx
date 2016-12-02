@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import App from './components/App.jsx'
+import App from './../components/App.jsx'
 import Route from 'react-router/lib/Route'
 import IndexRoute from 'react-router/lib/IndexRoute'
 
@@ -10,7 +10,7 @@ const router =
 
             require.ensure([], function (require) {
                 callback(null,
-                    require('./components/Home.jsx').default
+                    require('./../components/Home.jsx').default
                 )
             })
         } } />
@@ -18,7 +18,7 @@ const router =
 
             require.ensure([], function (require) {
                 callback(null,
-                    require('./components/Login.jsx').default
+                    require('./../components/Login.jsx').default
                 )
             })
         } } />
@@ -26,15 +26,18 @@ const router =
 
             require.ensure([], function (require) {
                 callback(null,
-                    require('./components/Investlist.jsx').default
+                    require('./../components/Investlist.jsx').default
                 )
             })
-        } } />
+        } }
+
+
+            />
         <Route path='regist' getComponent={(nextState, callback) => {
 
             require.ensure([], function (require) {
                 callback(null,
-                    require('./components/Regist.jsx').default
+                    require('./../components/Regist.jsx').default
                 )
             })
         } } />

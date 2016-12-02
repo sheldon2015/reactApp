@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from 'react-dom';
-import router from 'router.jsx';
+import router from './routers/router.jsx';
 import Router from 'react-router/lib/Router'
 import browserHistory from 'react-router/lib/browserHistory'
 import { createStore, applyMiddleware } from 'redux';
