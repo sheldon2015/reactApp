@@ -10,11 +10,13 @@ import thunkMiddleware from 'redux-thunk';
 import createLogger from 'redux-logger';
 
 const loggerMiddleware = createLogger()
-
 const store = createStore(combinedReducers, applyMiddleware(
     thunkMiddleware,
     loggerMiddleware
 ));
+
+
+
 render(
     <Provider store={store}>
         <Router routes={router} history={browserHistory} />

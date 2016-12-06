@@ -11,7 +11,9 @@ html {
 
 .container {
     padding-top: 40px;
-    overflow: auto;
+    overflow-y: auto;
+    overflow-x: hidden;
+
     height: 100%;
 }
 
@@ -48,3 +50,18 @@ html {
 .fz16 {
     font-size: 16px;
 }
+
+.swap-enter {
+    opacity: .01;
+    transform: translateY(-5em);
+    transition: all .5s ease-in;
+}
+
+.swap-enter.swap-enter-active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+
+

@@ -17,15 +17,19 @@ export default function investListActionCreator(pageNumber) {
 
     return (dispatch) => {
         dispatch(fetchList())//发出请求获取list
-        return axios({
-            url: '/data/investlist.json',
-            params: {
-                pageNumber: pageNumber
-            }
-        }).then(function (response) {
-            dispatch(receiveList(response.data))//请求成功
-        }).catch(function (error) {
-            console.log(error);
-        });
+        return setTimeout(() => {
+            axios({
+                url: '/data/investlist.json',
+                params: {
+                    pageNumber: pageNumber
+                }
+            }).then(function (response) {
+                dispatch(receiveList(response.data))//请求成功
+            }).catch(function (error) {
+                console.log(error);
+            });
+
+        }, 2000)
+
     }
 }

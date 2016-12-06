@@ -1,8 +1,13 @@
+@import './const.less';
+
 .spinner {
-    margin: 100px auto;
-    width: 20px;
-    height: 20px;
-    position: relative;
+    margin: 0 auto;
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
 }
 
 .container1 > div,
@@ -10,7 +15,7 @@
 .container3 > div {
     width: 6px;
     height: 6px;
-    background-color: #333;
+    background-color: @blue;
     border-radius: 100%;
     position: absolute;
     -webkit-animation: bouncedelay 1.2s infinite ease-in-out;

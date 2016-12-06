@@ -1,20 +1,23 @@
 import React, { Component } from 'react';
-import { Link, IndexLink } from 'react-router';
+import { Link, IndexLink, withRouter } from 'react-router';
 import { connect } from 'react-redux';
 import { TOGGLESIDE } from 'const.jsx';
 
 require('./../less/side.less');
 
 
-const ACTIVE = {
-    color: 'white',
-    background: '#ff5722'
-}
+// const ACTIVE = {
+//     color: 'white',
+//     background: '#ff5722'
+// }
+// <Link activeStyle="active" {...this.props} />
+
+
 
 class NavLink extends Component {
 
     render() {
-        return (<Link activeStyle={ACTIVE} {...this.props} />);
+        return (<Link activeClassName="active" {...this.props} />);
     }
 }
 
@@ -30,7 +33,7 @@ class Side extends Component {
 
             <ul className={sideClass}>
                 <li>
-                    <IndexLink onClick={clickHandle} activeStyle={ACTIVE} to="/">Home</IndexLink>
+                    <IndexLink onClick={clickHandle} activeClassName="active" to="/">Home</IndexLink>
                 </li>
 
                 <li>
@@ -50,12 +53,16 @@ class Side extends Component {
 }
 
 
-const mapStateToProps = (state) => ({ toggleSide: state.toggleSide });
+const mapStateToProps = (state, ownProps) => ({
+    toggleSide: state.toggleSide
+    //, test: ownProps
+});
 const mapDispatchToProps = (dispatch, ownProps) => (
     {
         clickHandle: (arg) => {
             dispatch({ type: TOGGLESIDE })
         }
+
         //可以自定义属性传递给子组件 ownProps:1
     }
 )

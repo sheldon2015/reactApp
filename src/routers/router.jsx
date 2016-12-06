@@ -13,7 +13,7 @@ const router =
                     require('./../components/Home.jsx').default
                 )
             })
-        } } />
+        } }  />
         <Route path='login' getComponent={(nextState, callback) => {
 
             require.ensure([], function (require) {

@@ -1,14 +1,14 @@
-import React, { createClass } from 'react';
+import React from 'react';
 
-const Home = createClass({
 
-    render() {
+const Home = () =>
+    (
+        <div>
+            home
+        </div>
 
-        return (
-            <div>
-                home
-            </div>
-        )
-    }
-})
+
+    );
+
+
 export default Home;

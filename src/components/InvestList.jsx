@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import InvestListItem from './InvestListItem.jsx';
 import { connect } from 'react-redux'
 import { FETCHLIST } from 'const.jsx'
@@ -6,40 +6,63 @@ import Loading from './Loading.jsx';
 
 import investListActionCreator from './../actions/investListActionCreator.jsx';
 
+
 require('./../less/investList.less');
 
 
-const InvestList = (props) => {
+class InvestList extends Component {
 
 
-    return (
-        <div>
+    componentWillMount() {
+        this.props.handle(0)
+    }
 
-            {              
-                <div>
-                    <ul className='investList'>
-                        {
-                            props.investList.isFetching ? <Loading /> : props.investList.data.map((value, index) => {
-                                return <InvestListItem key={index} value={value} />
-                            })
-                        }
+    render() {
+        return (
+            <div>
+                {
+                    <div>
+                        <ul className='investList'>
+                            {
+                                this.props.investList.isFetching ?
+                                    this.props.investList.data.map((value, index) => {
+                                        return <InvestListItem key={index} value={value} />
+                                    })
 
-                    </ul>
-                    <a className='text-center loadmore' onClick={(e) => { e.preventDefault(); props.clickHandle(11) } } >load more</a>
-                </div>
-            }
-        </div>
-    );
+                                    : this.props.investList.data.map((value, index) => {
+                                        return <InvestListItem key={index} value={value} />
+                                    })
+                            }
+                            {
+                                this.props.investList.isFetching && <Loading />
+                            }
+
+                        </ul>
+
+
+
+                        <a onClick={() => this.props.handle(1)} className='loadmore' href="javascript:void(0)">load more</a>
+
+                    </div>
+                }
+            </div>
+        );
+    }
 }
+
+
+
 
 
 
 const mapStateToProps = (state) => ({ investList: state.investList })
 
 const mapDispatchToProps = (dispatch) => ({
-    clickHandle(number) {
+
+    handle(number) {
         dispatch(investListActionCreator(number))
     }
+
 })
 
 

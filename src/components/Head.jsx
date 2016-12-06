@@ -8,7 +8,7 @@ class Head extends Component {
     render() {
         return (
             <div className='head text-right'>
-                <a onClick={this.props.clickHandle} href="javascript:void(0)">menu</a>
+                <a className='menu fz16' onClick={this.props.clickHandle} href="javascript:void(0)">menu</a>
             </div>
         );
     }

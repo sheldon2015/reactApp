@@ -2,6 +2,7 @@ const webpack = require('webpack');
 const path = require('path');
 
 const OpenBrowserPlugin = require("open-browser-webpack-plugin");
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 module.exports = {
     entry: {
@@ -18,8 +19,8 @@ module.exports = {
     plugins: [
 
         new webpack.HotModuleReplacementPlugin(),
-
-        new OpenBrowserPlugin({ url: 'http://localhost:3000', browser: 'chrome', ignoreErrors: true })
+        new OpenBrowserPlugin({ url: 'http://localhost:3000', browser: 'chrome', ignoreErrors: true }),
+        new ExtractTextPlugin("name.css")
     ],
 
     devServer: {
@@ -46,7 +47,7 @@ module.exports = {
             }, {
                 test: /\.less$/,
                 exclude: /node_modules/,
-                loader: 'style!css!postcss!less'
+                loader: ExtractTextPlugin.extract('style', "css!postcss!less")
 
             },
             //如果图片的资源大小大于limit在外部引入，不然就声称data urls嵌入

@@ -1,11 +1,11 @@
 import React from 'react';
 
-const InvestDetail = () => {
-    return (
+const InvestDetail = () =>
+    (
         <div>
             investdetail
         </div>
     );
-};
+
 
 export default InvestDetail;
