@@ -6,8 +6,8 @@
   "scripts": {
     "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
     "start:dev": "webpack-dev-server",
-    "start:prod": "npm run build && node server.bundle.js",
-    "build": "npm run build:client && npm run build:server",
+    "start:prod": "npm run build",
+    "build": "npm run build:client",
     "build:client": "webpack --config webpack.config.prod.js",
     "build:server": "webpack --config webpack.config.server.js "
   },

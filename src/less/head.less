@@ -1,15 +1,27 @@
-@import './global.less';
-.head{
+@import './const.less';
+
+.head {
     position: absolute;
-    left:0;
+    left: 0;
     right: 0;
     height: 40px;
     line-height: 40px;
     background: @blue;
     padding: 0 10px;
     z-index: 0;
-    .menu{
+    display: flex;
+    align-items: center;
+
+    .menu {
         font-weight: bold;
+        flex: 1;
+    }
+
+    .loginOut {
+        font-weight: bold;
+        flex: 1;
+        display: flex;
+        justify-content: flex-end;
     }
 
 }

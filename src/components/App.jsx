@@ -5,6 +5,8 @@ import Head from './Head.jsx';
 import { connect } from 'react-redux';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 
+require('./../less/global.less')
+
 const App = (props) => {
 
     let Modal;
@@ -12,29 +14,25 @@ const App = (props) => {
         Modal = require('./Modal.jsx').default;
     });
 
+
     return (
-
-
         <div className='wrap'>
             <Head />
             <Side />
-            <div className='container'>
-                <ReactCSSTransitionGroup
-                    component="div"
-                    transitionName='swap'
-                    transitionEnterTimeout={500}
-                    transitionLeave={false}
-
-                    >
-                    {
-                        React.cloneElement(props.children || <div />, { key: props.location.pathname })
-                    }
-                </ReactCSSTransitionGroup>
-
+            <ReactCSSTransitionGroup className='container'
+                component="div"
+                transitionName='swap'
+                transitionEnterTimeout={500}
+                transitionLeave={false}
+                >
                 {
-                    Modal && <Modal />
+                    //React.cloneElement(props.children, { key: props.location.pathname })注意区分组件和react元素，react元素是由组件构成的
+                    <props.children.type key={props.location.pathname} />
                 }
-            </div>
+            </ReactCSSTransitionGroup>
+            {
+                Modal && <Modal />
+            }
 
         </div>
 

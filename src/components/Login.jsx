@@ -1,14 +1,19 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux'
+import Loading from './Loading.jsx';
+import loginActionCreator from './../actions/loginActionCreator.jsx'
 require('./../less/regist.less');
-
 class Login extends Component {
     static contextTypes = {
         router: React.PropTypes.object
     };
+    transition = () => {
+        const path = `/account`
+        this.context.router.push(path);
+    }
     submitHandle = (e) => {
         e.preventDefault();
-        const path = `/account`;
-        this.context.router.push(path);
+        this.props.handle(this.transition);
     }
     render() {
         return (
@@ -25,9 +30,17 @@ class Login extends Component {
                     </div>
                     <input className='submit' type="submit" value="submit" />
                 </form>
+                {
+                    this.props.login.isFetching && <Loading />
+                }
             </div>
         );
     }
 }
-
-export default Login;
+const mapStateToProps = (state) => ({ login: state.login })
+const mapDispatchToProps = (dispatch) => ({
+    handle(cb) {
+        dispatch(loginActionCreator(cb))
+    }
+})
+export default connect(mapStateToProps, mapDispatchToProps)(Login);

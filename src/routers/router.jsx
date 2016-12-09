@@ -41,6 +41,14 @@ const router =
                 )
             })
         } } />
+        <Route path='account' getComponent={(nextState, callback) => {
+
+            require.ensure([], function (require) {
+                callback(null,
+                    require('./../components/Account.jsx').default
+                )
+            })
+        } } />
 
 
     </Route>

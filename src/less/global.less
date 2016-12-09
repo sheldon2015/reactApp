@@ -47,13 +47,28 @@ html {
     text-align: right;
 }
 
+.pull-left {
+    float: left;
+}
+
+.pull-right {
+    float: right;
+}
+
 .fz16 {
     font-size: 16px;
 }
 
+.clearfix:after,
+.clearfix:before {
+    display: table;
+    content: " ";
+    clear: both;
+}
+
 .swap-enter {
     opacity: .01;
-    transform: translateY(-5em);
+    transform: translateY(-6em);
     transition: all .5s ease-in;
 }
 
@@ -61,7 +76,3 @@ html {
     opacity: 1;
     transform: translateY(0);
 }
-
-
-
-

@@ -1,0 +1,51 @@
+@import './const.less';
+
+.account {
+
+    display: flex;
+    height: 100%;
+    align-content: flex-start;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    .item {
+        display: flex;
+        width: 33%;
+        height: 15%;
+        border: 1px solid @gray;
+        margin: 0 0 -1px -1px;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .a-head {
+        width: 100%;
+
+        .greet {
+            margin: 20px 0;
+        }
+
+        .a-wrap {
+            display: flex;
+            margin: 20px 0;
+
+        }
+
+        .head-item {
+
+            flex: 1;
+        }
+    }
+
+    .a-middle {
+        display: flex;
+        width: 100%;
+        margin: 20px 0;
+
+        .middle-item {
+
+            flex: 1;
+        }
+    }
+
+}

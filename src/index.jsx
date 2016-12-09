@@ -9,10 +9,22 @@ import combinedReducers from './reducers/reducer.jsx';
 import thunkMiddleware from 'redux-thunk';
 import createLogger from 'redux-logger';
 
-const loggerMiddleware = createLogger()
+
+
+const middleware = [thunkMiddleware];
+
+if (process.env.NODE_ENV !== 'production') {
+
+    const loggerMiddleware = createLogger();
+    middleware.push(loggerMiddleware);
+
+
+}
+
+
+
 const store = createStore(combinedReducers, applyMiddleware(
-    thunkMiddleware,
-    loggerMiddleware
+    ...middleware
 ));
 
 

@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux'
-import { TOGGLESIDE, FETCHLIST, FETCH_INVESTLIST, RECEIVE_INVESTLIST } from 'const.jsx';
+import { TOGGLESIDE, FETCHLIST, FETCH_INVESTLIST, RECEIVE_INVESTLIST,LOGINING,LOGINED } from 'const.jsx';
 //UI状态,默认true,不可见
 const toggleSide = (prevstate = true, action) => {
     switch (action.type) {
@@ -9,6 +9,7 @@ const toggleSide = (prevstate = true, action) => {
             return prevstate;
     }
 }
+//投资列表
 const investList = (
     prevstate = {
         isFetching: false,
@@ -36,12 +37,41 @@ const investList = (
     
     }
 }
+const login = (
+    prevstate = {
+        isFetching: false,
+        isLogin: false,
+    }, action) => {
+
+    switch (action.type) {
+
+        case LOGINING:
+            return {
+                ...prevstate,
+                isFetching:true
+            };
+
+        case LOGINED:
+
+            return {
+                ...prevstate,
+                isFetching: false,
+                isLogin: action.isLogin                
+            }
+        default:
+            return prevstate;
+    
+    }
+}
+
+
 
 
 
 const reducers = combineReducers({
     toggleSide,   
-    investList
+    investList,
+    login
 })
 
 
