@@ -19,7 +19,11 @@ module.exports = {
     plugins: [
 
         new webpack.HotModuleReplacementPlugin(),
-        new OpenBrowserPlugin({ url: 'http://localhost:3000', browser: 'chrome', ignoreErrors: true }),
+        new OpenBrowserPlugin({
+            url: 'http://localhost:3000',
+            browser: 'chrome',
+            ignoreErrors: true
+        }),
         new ExtractTextPlugin("name.css")
     ],
 
@@ -35,8 +39,7 @@ module.exports = {
 
     module: {
 
-        loaders: [
-            {
+        loaders: [{
                 test: /\.jsx?$/,
                 exclude: /node_modules/,
                 loader: 'babel',
