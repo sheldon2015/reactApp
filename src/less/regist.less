@@ -1,39 +1,35 @@
-@import './const.less';
+@import "./const.less";
 
 .login,
 .regist {
+  padding: 0 10px;
 
-    padding: 0 10px;
+  .item {
+    padding: 10px;
+    border-bottom: 1px solid @gray;
+    display: flex;
 
-    .item {
-        padding: 10px;
-        border-bottom: 1px solid @gray;
-        display: flex;
-
-        label {
-            flex: 1;
-        }
-
-        input {
-            flex: 2;
-            height: 100%;
-        }
+    label {
+      flex: 1;
     }
 
-    .sign {
-        font-weight: bold;
-        margin: 10px auto;
-
+    input {
+      flex: 2;
+      height: 100%;
     }
+  }
 
-    .submit {
-        display: block;
-        margin: 20px auto;
-        height: 36px;
-        background: @blue;
-        color: @white;
-        width: 80%;
+  .sign {
+    font-weight: bold;
+    margin: 10px auto;
+  }
 
-    }
-
+  .submit {
+    display: block;
+    margin: 20px auto;
+    height: 36px;
+    background: @blue;
+    color: @white;
+    width: 80%;
+  }
 }
